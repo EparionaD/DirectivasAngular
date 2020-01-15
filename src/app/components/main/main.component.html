@@ -1,0 +1,54 @@
+<main class="container">
+    <div class="row my-5">
+        <div class="col-6">
+            <h1>*ngIf</h1>
+            <hr class="my-4">
+            <div *ngIf="mostrar" class="card text-white bg-danger mb-3">
+                <div class="card-header">Header</div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ miObjeto.autor }}</h5>
+                    <p class="card-text">{{ miObjeto.mensaje }}</p>
+                </div>
+            </div>
+            <button (click)="mostrar = !mostrar" type="button" class="btn btn-warning">Mostrar/Ocultar</button>
+        </div>
+        <div class="col-6">
+            <h1>*ngFor</h1>
+            <hr class="my-4">
+            <div *ngFor="let miA of miArray; let i=index" class="list-group">
+                <button type="button" class="list-group-item list-group-item-action">{{ i }} - {{ miA }}</button>
+            </div>
+        </div>
+    </div>
+    <h1 class="my-3">Lista de Útiles escolares</h1>
+    <div class="row">
+        <!--<div *ngFor="let variable of productos" class="col-3">
+            <div class="card">
+                <img src="{{ variable.image }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ variable.title }}</h5>
+                    <p class="card-text">{{ variable.description }}</p>
+                    <p class="card-text">Precio: {{ variable.price }}</p>
+                </div>
+            </div>
+        </div>-->
+        <div *ngFor="let variable of productos" class="card-deck col">
+            <div class="card">
+                <img src="{{ variable.image }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ variable.title }}</h5>
+                    <p class="card-text">{{ variable.description }}</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Precio: {{ variable.price }}</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1 class="my-3">El perrito Toby</h1>
+    <div class="row my-3">
+        <div *ngIf="perrito === 'toby'" class="col text-center">
+            <img src="assets/img/toby.jpg" alt="">
+        </div>
+    </div>
+</main>
